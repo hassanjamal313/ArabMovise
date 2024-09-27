@@ -1,0 +1,572 @@
+:root {
+  /* Padding top left Right Left  */
+  --PaddingTop: 15px;
+  --PaddingBottom: 15px;
+  --PaddingBottomTop: 15px;
+  --PaddingLeft: 15px;
+  --PaddingRight: 15px;
+  --PaddingRightLeft: 15px;
+
+  --MarginTop: 15px;
+  --MarginBottom: 15px;
+  --MarginBottomTop: 100px;
+  --MarginLeft: 15px;
+  --MarginRight: 15px;
+  --MarginRightLeft: 15px;
+}
+
+body {
+  background: black;
+}
+/* start header */
+header {
+  padding-top: var(--PaddingTop);
+  padding-bottom: var(--PaddingBottom);
+  height: fit-content;
+  text-transform: uppercase;
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+header .container::after {
+  content: "";
+  width: 100%;
+  height: 5px;
+  background: rgb(255, 255, 255);
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+}
+header .container .logo h1 {
+  color: rgb(255, 255, 255);
+  font-size: 1.5em;
+}
+header .container nav {
+  flex: 1;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  z-index: 110;
+}
+header .container nav ul {
+  display: flex;
+  align-items: center;
+}
+header .container nav ul li {
+  padding-left: var(--PaddingLeft);
+  padding-right: var(--PaddingRight);
+  padding-bottom: 10px;
+  padding-top: 10px;
+  position: relative;
+}
+header .container nav ul li::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: rgb(255, 255, 255);
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+  transition: 0.09s;
+}
+header .container nav ul li:hover:after {
+  width: 100%;
+}
+header .container nav ul li a {
+  color: rgb(255, 255, 255);
+}
+header .container nav > i {
+  display: none;
+  cursor: pointer;
+}
+.searchIcon {
+  color: white;
+  font-size: 16px;
+  margin: 0px 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+}
+
+.searchIcon i::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 10px;
+  background: gray;
+  z-index: 150;
+}
+.searchIcon i:hover:after {
+  content: "search";
+  padding: 10px;
+}
+.serachBox {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 140;
+  padding: 0px 0px;
+  backdrop-filter: blur(10px);
+ -webkit-backdrop-filter:blur(10px) ;
+  height: 0px;
+  transition: 0.3s;
+  overflow: hidden;
+}
+.serachBox::-webkit-scrollbar {
+  background: rgb(129, 129, 129);
+  width: 4px;
+}
+.serachBox::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255);
+}
+.serachBox:scope:-webkit-scrollbar {
+  bottom: 0;
+}
+#data2 div {
+  display: none;
+}
+.searchDrop {
+  height: 100vh;
+  padding: 0px 100px;
+  overflow-y: scroll;
+}
+#serachBoxX {
+  color: white;
+  position: absolute;
+  font-size: 30px;
+  right: 30px;
+  top: 30px;
+}
+
+.serachBox form {
+  width: 100%;
+  height: 20vh;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  position: relative;
+}
+.serachBox form::after {
+  content: "this input to Check box";
+  position: absolute;
+  z-index: 105;
+  color: white;
+  top: 60%;
+  font-size: 12px;
+  left: 1%;
+}
+.serachBox form .inputText {
+  width: 90%;
+}
+.serachBox form .inputText input {
+  width: 100%;
+  padding: 10px 10px;
+  outline: none;
+  border-radius: 7px 0px 0px 7px;
+}
+.serachBox form .subInput {
+  flex: 1;
+}
+.serachBox form .subInput input {
+  padding: 10px 0px;
+  width: 100%;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+}
+.serachBox form div input {
+  border: 1px solid rgb(114, 96, 96);
+}
+@media (max-width: 768px) {
+  .navBarsearchX i {
+    z-index: 101;
+  }
+  .serachBox::after {
+    display: none;
+  }
+  .serachBox form::after {
+    display: none;
+  }
+  .searchIcon i::after {
+    display: none;
+  }
+  header .container nav > i {
+    display: block;
+    font-size: 25px;
+    position: relative;
+    z-index: 101;
+    color: white;
+  }
+  header .container nav ul {
+    display: none;
+  }
+  header .container nav .NavBArDropList {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 48px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: calc(100vh - 63px);
+    backdrop-filter: blur(10px);
+ -webkit-backdrop-filter:blur(10px) ;
+    z-index: 100;
+  }
+  .serachBox {
+    padding: 10px;
+  }
+  .serachBox form {
+    height: 30vh;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: end;
+    align-items: center;
+  }
+  .serachBox form .inputText input {
+    border-radius: 7px;
+  }
+  .serachBox form .subInput {
+    flex: 0;
+  }
+  .serachBox form .subInput input {
+    padding: 10px 10px;
+    border-radius: 3px;
+  }
+  #data .Mainbox {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px 20px;
+    justify-content: center;
+  }
+  #data .Mainbox .title {
+    display: none;
+  }
+}
+
+/* end header  */
+
+/*start landing Page  */
+
+.LandingPAge {
+  background: rgb(95, 95, 95);
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+}
+
+.LandingPAge::-webkit-scrollbar {
+  display: none;
+}
+
+.LandingPAge div {
+  flex-shrink: 0;
+  width: 100%;
+}
+.LandingPAge .Arrow {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.LandingPAge .Arrow div {
+  width: 50px;
+  height: 50px;
+  background: rgba(148, 148, 148, 0.308);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0px 10px;
+  color: white;
+  font-size: 22px;
+  transition: 0.3s;
+  cursor: pointer;
+  position: relative;
+  z-index: 20;
+}
+.LandingPAge .Arrow div:hover {
+  background: rgba(194, 194, 194, 0.726);
+}
+.LandingPAge .Arrow .right {
+  position: absolute;
+  right: 0;
+}
+.LandingPAge > div {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+.LandingPAge > div .backCover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+
+.LandingPAge > div .titleAndMinTitle {
+  width: 50%;
+  position: relative;
+  z-index: 10;
+  padding-left: 100px;
+}
+.LandingPAge > div .titleAndMinTitle h2 {
+  font-size: 40px;
+  text-transform: uppercase;
+  color: #eee;
+}
+
+.LandingPAge > div .titleAndMinTitle h3 {
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #eeeeeeba;
+  margin: 20px 0px;
+}
+.LandingPAge > div .titleAndMinTitle p {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #eeeeeeba;
+  line-height: 1.5;
+}
+.LandingPAge > div .titleAndMinTitle button {
+  padding: 10px 40px;
+  border: none;
+  outline: none;
+  background: rgb(255, 255, 255);
+  margin: 10px 0px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+.LandingPAge > div .titleAndMinTitle button:hover {
+  background: rgb(209, 209, 209);
+}
+
+.LandingPAge .movise .backCover {
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.699) 40%,
+      rgba(255, 0, 0, 0)
+    ),
+    url(/assets/image/backCover1\ .jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.LandingPAge .movise2 .backCover {
+  background: linear-gradient(to right, black 40%, rgba(255, 0, 0, 0)),
+    url(/assets/image/backCover2.jpg);
+  background-size: cover;
+}
+
+.LandingPAge .movise3 .backCover {
+  background: linear-gradient(to right, black 40%, rgba(255, 0, 0, 0)),
+    url(/assets/image/backCover3.jpg);
+  background-size: cover;
+}
+
+@media (max-width: 992px) {
+  .LandingPAge .movise .titleAndMinTitle,
+  .LandingPAge .movise2 .titleAndMinTitle,
+  .LandingPAge .movise3 .titleAndMinTitle {
+    min-width: 100%;
+    text-align: center;
+    padding: 0px 10px;
+    text-align: center;
+    h2 {
+      font-size: 22px;
+    }
+    h3 {
+      font-size: 12px;
+    }
+    p {
+      font-size: 10px;
+    }
+  }
+  .LandingPAge .movise .backCover,
+  .LandingPAge .movise2 .backCover,
+  .LandingPAge .movise3 .backCover {
+    background-position: center;
+  }
+}
+@media (max-width: 768px) {
+  .Arrow {
+    position: relative;
+    top: -0px;
+  }
+}
+
+/*end landing Page  */
+/* start mainBox */
+.Mainbox {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px 20px;
+  justify-content: center;
+  margin-top: calc(var(--MarginBottomTop) - 50px);
+  padding: 30px 20px;
+}
+
+.boxofData .Mainbox {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
+}
+.Mainbox > div {
+  overflow: hidden;
+  border-radius: 7px 7px 0px 0px;
+  position: relative;
+  transition: 0.3s;
+}
+.Mainbox > div:hover {
+  scale: 1.05;
+  border-radius: 0;
+  z-index: 200;
+}
+.Mainbox > div .img {
+  width: 100%;
+}
+.Mainbox > div .img img {
+  width: 100%;
+}
+.Mainbox > div .title {
+  position: absolute;
+  bottom: 0px;
+  background: rgba(19, 19, 19, 0.575);
+  width: 100%;
+  padding: 7px 3px;
+  text-wrap: nowrap;
+  color: white;
+}
+.Mainbox > div .title h3 {
+  margin-bottom: 3px;
+  font-size: 60px;
+}
+@media (min-width: 768px) {
+  .Mainbox {
+    margin-top: 0px;
+  }
+
+  .Mainbox > div .title p {
+    font-size: 10px;
+  }
+  .Mainbox > div .title h3 {
+    font-size: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .Mainbox {
+    margin-top: 0px;
+  }
+
+  .Mainbox>div .title p {
+    font-size: 10px;
+  }
+
+  .Mainbox>div .title h3 {
+    font-size: 15px;
+  }
+}
+@media (max-width: 992px) {
+  .Mainbox {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px 20px;
+    justify-content: center;
+  }
+}
+.MoviseBox {
+ backdrop-filter: blur(10px);
+ -webkit-backdrop-filter:blur(10px) ;
+  width:100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 200;
+  padding: 0px;
+  overflow: hidden;
+  border: 0px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  opacity: 0;  
+  transition: .3s;
+  padding: 10px;
+}
+.Mainbox div:hover .MoviseBox{
+  opacity: 1;
+  border: 1px solid rgb(90, 57, 57);
+}
+.MoviseBox > div {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  
+}
+.MoviseBox .warning{
+  display: flex;
+  gap: 10px;
+  text-wrap: nowrap;
+  color: #eee;
+}
+.MoviseBox .warning .warningAge{
+  display: flex;
+  font-size: 30px;
+  color: rgb(255, 171, 171);
+}
+.MoviseBox  .text h4{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.MoviseBox .text p{
+  line-height: 1.5;
+}
+.MoviseBox .text{
+  max-width: 100%;
+  text-wrap: balance;
+  color: white;
+  font-weight: 100;
+}
+@media (max-width:992px) {
+  
+  .MoviseBox .warning {
+      display: flex;
+      gap: 10px;
+      text-wrap: nowrap;
+      color: #eee;
+    }
+    .MoviseBox .star{
+      color: rgb(255, 209, 109);
+    }
+    .MoviseBox .warning .warningAge {
+      display: flex;
+      font-size: 20px;
+      color: rgb(255, 255, 255);
+    }
+  
+    .MoviseBox .text h4 {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+  
+    .MoviseBox .text p {
+      line-height: 1.5;
+    }
+  
+    .MoviseBox .text {
+      width: 100%;
+      text-wrap: balance;
+      color: white;
+      font-weight: 200;
+      text-overflow: ellipsis;
+    }
+}
+/* End mainBox */
